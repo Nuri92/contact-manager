@@ -1,12 +1,10 @@
-package main.java;
-
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		ContactRepository repository = new ContactMemoryRepository();
+		ContactRepository repository = new ContactDatabaseRepository();
 		ContactService    service    = new ContactService(repository);
 		
 		Scanner scanner = new Scanner(System.in);
@@ -133,7 +131,7 @@ public class Main {
 	private static int readInt(Scanner scanner) {
 		while (true) {
 			try {
-				int number = readInt(scanner);
+				int number = scanner.nextInt();
 				scanner.nextLine();
 				return number;
 			} catch (InputMismatchException e) {

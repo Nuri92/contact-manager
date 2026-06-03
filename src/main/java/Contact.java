@@ -1,5 +1,3 @@
-package main.java;
-
 public class Contact {
 	
 	private int     id;
@@ -8,12 +6,20 @@ public class Contact {
 	private String  phoneNumber;
 	private boolean favorite;
 	
-	public Contact(int id, String name, String email, String phoneNumber) {
-		this.id          = id;
+	
+	public Contact(String name, String email, String phoneNumber) {
 		this.name        = name;
 		this.email       = email;
 		this.phoneNumber = phoneNumber;
 		this.favorite    = false;
+	}
+	
+	public Contact(int id, String name, String email, String phoneNumber, boolean favorite) {
+		this.id          = id;
+		this.name        = name;
+		this.email       = email;
+		this.phoneNumber = phoneNumber;
+		this.favorite    = favorite;
 	}
 	
 	public int getId() {

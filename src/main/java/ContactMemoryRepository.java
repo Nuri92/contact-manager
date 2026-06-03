@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +21,11 @@ public class ContactMemoryRepository implements ContactRepository {
 	@Override
 	public void delete(Contact contact) {
 	this.contacts.remove(contact);
+	}
+	
+	@Override
+	public void update(Contact contact) {
+	
 	}
 }
 

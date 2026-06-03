@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +7,11 @@ public class ContactService {
 	
 	public ContactService(ContactRepository repository) {
 		this.repository = repository;
-		this.nextId   = 1;
 	}
 	
 	public Contact addContact(String name, String email, String phoneNumber) {
-		Contact contact = new Contact(nextId, name, email, phoneNumber);
+		Contact contact = new Contact(name, email, phoneNumber);
 		repository.save(contact);
-		nextId++;
 		return contact;
 	}
 	
@@ -58,6 +54,7 @@ public class ContactService {
 	public Contact updateContact(int id, String name, String email, String phoneNumber) {
 		Contact contact = getExistingContact(id);
 		contact.update(name, email, phoneNumber);
+		repository.update(contact);
 		return contact;
 	}
 	
