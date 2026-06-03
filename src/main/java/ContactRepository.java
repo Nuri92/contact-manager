@@ -5,4 +5,5 @@ public interface ContactRepository {
 	List<Contact> findAll();
 	void delete(Contact contact);
 	void update(Contact contact);
+	void setFavorite(int id, boolean favorite);
 }

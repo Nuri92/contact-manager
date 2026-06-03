@@ -125,4 +125,26 @@ public class ContactDatabaseRepository implements ContactRepository {
 			throw new RuntimeException("Kontakt konnte nicht aktualisiert werden.", e);
 		}
 	}
+	
+	@Override
+	public void setFavorite(int id, boolean favorite) {
+		String sql = """
+		             UPDATE contacts
+		             SET favorite = ?
+		             WHERE id = ?
+		             """;
+		
+		try (
+				Connection connection = DatabaseConnection.getConnection();
+				PreparedStatement statement = connection.prepareStatement(sql);
+		) {
+			statement.setInt(1, favorite ? 1 : 0);
+			statement.setInt(2, id);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("Keinen Kontakt gefunden mit ID " + id, e);
+		}
+	}
 }

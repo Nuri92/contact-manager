@@ -27,5 +27,10 @@ public class ContactMemoryRepository implements ContactRepository {
 	public void update(Contact contact) {
 	
 	}
+	
+	@Override
+	public void setFavorite(int id, boolean favorite) {
+	
+	}
 }
 

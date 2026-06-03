@@ -96,7 +96,7 @@ public class Main {
 					}
 				}
 				case 6 -> {
-					System.out.println("Kontakt favorisieren");
+					System.out.println("Favorisieren");
 					try {
 						System.out.println("ID des Kontaktes eingeben: ");
 						int id = readInt(scanner);

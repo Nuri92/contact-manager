@@ -31,6 +31,7 @@ public class ContactService {
 	
 	public Contact markAsFavorite(int id) {
 		Contact contact = getExistingContact(id);
+		repository.setFavorite(id, true);
 		contact.markAsFavorite();
 		return contact;
 	}
