@@ -42,8 +42,8 @@ public class Contact {
 		return favorite;
 	}
 	
-	public void markAsFavorite() {
-		this.favorite = true;
+	public void setFavorite(boolean favorite) {
+		this.favorite = favorite;
 	}
 	
 	public void update(String name, String email, String phoneNumber) {

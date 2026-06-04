@@ -29,10 +29,11 @@ public class ContactService {
 		return null;
 	}
 	
-	public Contact markAsFavorite(int id) {
+	public Contact toggleFavorite(int id) {
 		Contact contact = getExistingContact(id);
-		repository.setFavorite(id, true);
-		contact.markAsFavorite();
+		boolean newFavoriteStatus = !contact.isFavorite();
+		contact.setFavorite(newFavoriteStatus);
+		repository.setFavorite(id, newFavoriteStatus);
 		return contact;
 	}
 	
