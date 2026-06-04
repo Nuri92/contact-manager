@@ -22,5 +22,15 @@ public class ContactMemoryRepository implements ContactRepository {
 	public void delete(Contact contact) {
 	this.contacts.remove(contact);
 	}
+	
+	@Override
+	public void update(Contact contact) {
+	
+	}
+	
+	@Override
+	public void setFavorite(int id, boolean favorite) {
+	
+	}
 }
 

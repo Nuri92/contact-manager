@@ -1,0 +1,6 @@
+ContactRepository.class
+Main.class
+DatabaseConnection.class
+ContactMemoryRepository.class
+ContactService.class
+Contact.class

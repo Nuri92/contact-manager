@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		ContactRepository repository = new ContactMemoryRepository();
+		ContactRepository repository = new ContactDatabaseRepository();
 		ContactService    service    = new ContactService(repository);
 		
 		Scanner scanner = new Scanner(System.in);
@@ -96,13 +96,17 @@ public class Main {
 					}
 				}
 				case 6 -> {
-					System.out.println("Kontakt favorisieren");
+					System.out.println("Favoriten Status wechseln");
 					try {
 						System.out.println("ID des Kontaktes eingeben: ");
 						int id = readInt(scanner);
 						scanner.nextLine();
-						Contact contact = service.markAsFavorite(id);
-						System.out.println("Kontakt mit ID: " + contact.getId() + " wurde als Favorit markiert.\n");
+						Contact contact = service.toggleFavorite(id);
+						System.out.println(
+								"Favoritenstatus geändert: "
+										+ contact.getName()
+										+ " → "
+										+ contact.isFavorite());
 					} catch (IllegalArgumentException e) {
 						System.out.println(e.getMessage());
 					}
@@ -131,7 +135,7 @@ public class Main {
 	private static int readInt(Scanner scanner) {
 		while (true) {
 			try {
-				int number = readInt(scanner);
+				int number = scanner.nextInt();
 				scanner.nextLine();
 				return number;
 			} catch (InputMismatchException e) {
